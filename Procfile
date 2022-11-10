@@ -1,2 +1,2 @@
 web: npm start
-server: node serverdb.js
+worker: node serverdb.js
