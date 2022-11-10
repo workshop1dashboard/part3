@@ -1,6 +1,6 @@
 <template>
   <div id="quiz-container">
-    <h1 id="logo-headline">headsUP</h1>
+    <h1 id="logo-headline">Quiz</h1>
     <hr class="divider" />
 
     <div>
@@ -28,7 +28,8 @@ export default {
     return {
       questions: [],
       loading: true,
-      index: 0
+      index: 0,
+      score: 0
     };
   },
   computed: {
@@ -61,6 +62,14 @@ export default {
       let question = this.questions[index];
 
       if (question.userAnswer) {
+        if (this.index === Object.keys(this.questions).length - 1) {
+          setTimeout(
+              function() {
+                alert("Le quiz est fini. Votre score est de "+this.score+ " sur 3");
+              }.bind(this),
+              3000
+          );
+        }
         if (this.index < this.questions.length - 1) {
           setTimeout(
               function() {
@@ -72,6 +81,7 @@ export default {
         if (question.userAnswer === question.correct_answer) {
           event.target.classList.add("rightAnswer");
           this.questions[index].rightAnswer = true;
+          this.score = this.score + 1;
         } else {
           event.target.classList.add("wrongAnswer");
           this.questions[index].rightAnswer = false;
