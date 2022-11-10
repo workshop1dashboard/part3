@@ -1,7 +1,9 @@
 {
   "user": [
     {
-
+      "email": "t@t.fr",
+      "password": "t",
+      "id": 1
     }
   ]
 }
