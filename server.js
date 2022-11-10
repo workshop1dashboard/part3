@@ -7,10 +7,10 @@ const router = jsonServer.router('db.json');
 const port = process.env.PORT || 3000;
 
 app.use('/', middlewares, router);
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port);
