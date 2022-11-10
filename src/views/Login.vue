@@ -74,7 +74,7 @@ export default {
       let email = document.getElementById("re").value;
       let password = document.getElementById("rp").value;
       let passwordRetype = document.getElementById("rrp").value;
-      const users = await axios.get(`http://workshoppart3.herokuapp.com/user`);
+      const users = await axios.get(`https://workshoppart3.herokuapp.com/user`);
       let checkEmail = false;
       for (let i = 0; i < users.data.length; i++) {
         if (users.data[i].email === email) checkEmail = true;
@@ -84,7 +84,7 @@ export default {
       else if (passwordRetype === "") alert("Mot de passe obligatoire");
       else if (password !== passwordRetype) alert("Mot de passe différent");
       else if (!checkEmail) {
-        await axios.post(`http://workshoppart3.herokuapp.com/user`, {'email': email, 'password': password});
+        await axios.post(`https://workshoppart3.herokuapp.com/user`, {'email': email, 'password': password});
         alert(email + "  Thanks for registration. \nTry to login Now");
 
         document.getElementById("re").value = "";
@@ -97,7 +97,7 @@ export default {
       let email = document.getElementById("se").value;
       let password = document.getElementById("sp").value;
       let check = false;
-      const users = await axios.get(`http://workshoppart3.herokuapp.com/user`);
+      const users = await axios.get(`https://workshoppart3.herokuapp.com/user`);
       for (let i = 0; i < users.data.length; i++) {
         if (users.data[i].email === email && users.data[i].password === password) {
           check = true;
