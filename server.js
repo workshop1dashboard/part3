@@ -7,7 +7,7 @@ const router = jsonServer.router('db.json');
 const port = process.env.PORT || 3000;
 
 app.use('/', middlewares, router);
-app.use(express.static("public"));
+app.use(express.static("public/"));
 
 app.get('/*', function (req, res) {
     res.sendFile('index.html');
