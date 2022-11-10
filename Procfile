@@ -1,1 +1,2 @@
-web: node server.js & node serverdb.js
+web: npm start
+server: node serverdb.js
